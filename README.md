@@ -25,6 +25,13 @@ Learn more docker compose <a href="https://docs.docker.com/compose/overview/" ta
     Server: mysql
     Username: root/user
     Password: root/user
+    
+    docker exec -it xxxxxx bash
+    mysql -u root -p
+    
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';
+    
+    ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'youpassword'
 ```
 5. Access mysql on terminal
 ```
