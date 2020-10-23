@@ -1,6 +1,6 @@
 # DOCKER COMPOSE PHPMYADMIN MYSQL
 
-Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. 
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
 
 Learn more docker compose <a href="https://docs.docker.com/compose/overview/" target="_blank">here</a>
 
@@ -25,6 +25,13 @@ Learn more docker compose <a href="https://docs.docker.com/compose/overview/" ta
     Server: mysql
     Username: root/user
     Password: root/user
+
+    Before access phpmyadmin, we may need to edit the root password by follow this below step.
+    
+    docker exec -it xxxxxx bash (xxxxxx is container id)
+    mysql -u root -p
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';
+    ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'youpassword'
 ```
 5. Access mysql on terminal
 ```
