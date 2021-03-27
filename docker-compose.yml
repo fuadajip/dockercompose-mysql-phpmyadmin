@@ -1,24 +1,29 @@
-version : '3'
+version : '3.7'
 
 services:
+
   mysql:
     image: mysql:latest
     container_name: dev_mysql
     environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: default_schema
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-root}
+    volumes:
+      - "data:/var/lib/mysql"
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: dev_pma
-    links:
+    depends_on:
       - mysql
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    restart: always
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_PASSWORD:-root}
     ports:
       - 8183:80
+    restart: always
+
+volumes:
+  data:

@@ -4,6 +4,9 @@ Compose is a tool for defining and running multi-container Docker applications. 
 
 Learn more docker compose <a href="https://docs.docker.com/compose/overview/" target="_blank">here</a>
 
+
+> This repo is used for starter user to deploy mysql and phpmyadmin easy.
+
 ## Playground
 
 1. Clone this repository
@@ -20,32 +23,20 @@ Learn more docker compose <a href="https://docs.docker.com/compose/overview/" ta
     docker-compose up -d
 ```
 4. Access phpmyadmin
-```
-    your_ip:8183
-    Server: mysql
-    Username: root/user
-    Password: root/user
-```
+[your_ip:8183](http://127.0.0.1:8183/)
+
 5. Access mysql on terminal
 ```
-    docker exec -it mysql_container_name mysql -u root -p
+    docker exec -it dev_mysql mysql -u root -p
 ```
 
-## Docker phpmyadmin ENV
-<table>
-<tr>
-<td>PMA_ARBITRARY </td>
-<td>when set to 1 connection to the arbitrary server will be allowed</td>
-</tr>
-<tr>
-<td>PPMA_HOST </td>
-<td>define address/host name of the MySQL server</td>
-</tr>
-<tr>
-<td>PMA_PORT </td>
-<td> define port of the MySQL server</td>
-</tr>
-</table>
+## Change Root password
+For this you must set `MYSQL_PASSWORD` variable.
+
+1. make `.env` file in project directory and paste these value on that
+```
+MYSQL_PASSWORD=changeme
+```
 
 ## For more information about phpmyadmin image
 <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin/" target="_blank">READ HERE</a>
