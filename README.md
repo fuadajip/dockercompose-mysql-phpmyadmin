@@ -30,10 +30,10 @@ Learn more docker compose <a href="https://docs.docker.com/compose/overview/" ta
     docker exec -it dev_mysql mysql -u root -p
 ```
 
-## Change Root password
+### Change Root password
 For this you must set `MYSQL_PASSWORD` variable.
 
-1. make `.env` file in project directory and paste these value on that
++ make `.env` file in project directory and paste these value on that
 ```
 MYSQL_PASSWORD=changeme
 ```
